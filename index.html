@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ex4</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+
+    <!-- Header -->
+    <header class="px-4 py-2 mb-3 bg-light rounded-3">
+        <div class="row">
+            <h1 class="col-12 display-5 fw-bold">Memory Game</h1>
+            <p class="col-md-9 fs-5">Click on the cards to flip them and find the matching
+                pairs with as little flips as possible.</p>
+        </div>
+    </header>
+
+    <!-- The game menu-->
+    <main>
+        <div id="mainContainer"></div>
+        <form id="gameMenu" action="#">
+            <div class="row g-2">
+                <div class="col-md-6">
+                    <label for="playerName" class="form-label">Your name:</label>
+                    <input type="text" name="playerName" id="playerName" class="form-control"
+                           placeholder="your name including letters and digits only"
+                           pattern="^[a-zA-Z0-9]{0,12}$" required>
+                    <p id="menu" class="mt-3">
+                        <button id="playButton" class="btn btn-primary" type="submit">Play</button>
+                        <a class="btn btn-light" data-bs-toggle="collapse" href="#collapseSettings" role="button"
+                           aria-expanded="false" aria-controls="collapseSettings">Settings</a>
+                        <a class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalScores">High Scores</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Settings collapse -->
+            <div class="collapse" id="collapseSettings">
+                <div class="row g-2">
+                    <div class="col-md-6">
+                        <label for="rowsSelection" class="form-label">Number of rows:</label>
+                        <select class="form-select" id="rowsSelection">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4" selected>4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <div class="alert alert-danger p-2 mt-2 d-none">Number of cards (rows x columns)
+                            must be even, please correct your choice.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="columnsSelection" class="form-label">Number of columns:</label>
+                        <select class="form-select" id="columnsSelection">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4" selected>4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <div class="alert alert-danger p-2 mt-2 d-none">Number of cards (rows x
+                            columns) must be even, please correct your choice.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="delaySelection" class="form-label">Delay (in seconds):</label>
+                        <select class="form-select" id="delaySelection">
+                            <option value="500">0.5</option>
+                            <option value="1000" selected>1</option>
+                            <option value="1500">1.5</option>
+                            <option value="2000">2</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- High scores modal -->
+            <div class="modal fade" id="modalScores" tabindex="-1" aria-labelledby="modalScoresLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5">Leaderboard</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div id="recordsTable" class="modal-body"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+<!-- Javascript file -->
+<script src="js/app.js"></script>
+
+</body>
+</html>
